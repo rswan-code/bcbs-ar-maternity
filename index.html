@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BCBS Arkansas | Maternal Care &amp; Support | Pyx Health</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
+
+/* NAV */
+.nav{background:#2e4456;padding:0 28px;display:flex;align-items:center;gap:0;position:sticky;top:0;z-index:100;flex-wrap:wrap}
+.nav-brand{color:#fff;font-family:'Roboto Slab',serif;font-weight:600;font-size:15px;padding:14px 20px 14px 0;border-right:1px solid rgba(255,255,255,.15);margin-right:12px;white-space:nowrap}
+.nav-brand span{color:#49a601}
+.nav-tabs{display:flex;flex-wrap:wrap;gap:0;flex:1}
+.nav-tab{color:rgba(255,255,255,.65);padding:14px 16px;font-size:12px;font-weight:500;cursor:pointer;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap}
+.nav-tab:hover{color:#fff;background:rgba(255,255,255,.05)}
+.nav-tab.active{color:#29a4a2;border-bottom-color:#29a4a2}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.tp-btn{background:rgba(41,164,162,.15);border:1px solid #29a4a2;color:#29a4a2;padding:7px 14px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap}
+.tp-btn.active{background:#29a4a2;color:#fff}
+
+/* PAGE */
+.page{display:none;padding:28px}
+.page.active{display:block}
+
+/* VALUE ANCHOR */
+.value-anchor{background:linear-gradient(135deg,#2e4456 0%,#1e3045 100%);border-radius:12px;padding:28px 32px;margin-bottom:24px;display:flex;align-items:center;gap:24px}
+.va-arrow{width:48px;height:48px;flex-shrink:0}
+.va-text h2{color:#fff;font-family:'Roboto Slab',serif;font-weight:300;font-size:22px;line-height:1.3;margin-bottom:6px}
+.va-text p{color:rgba(255,255,255,.7);font-size:13px;line-height:1.6}
+.va-text strong{color:#3acebf}
+
+/* SECTION HEADERS */
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:18px;margin-top:28px}
+.section-header:first-of-type{margin-top:0}
+.section-label{background:#29a4a2;color:#fff;font-size:10px;font-weight:700;padding:4px 10px;border-radius:20px;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+.section-title{font-family:'Roboto Slab',serif;font-weight:600;font-size:17px;color:#2e4456}
+.section-divider{flex:1;height:1px;background:#d2dce8}
+
+/* KPI GRID */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:24px}
+.kpi{background:#fff;border-radius:10px;padding:20px;border-top:3px solid #d2dce8;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.kpi.green{border-top-color:#49a601}
+.kpi.teal{border-top-color:#29a4a2}
+.kpi.blue{border-top-color:#0076bf}
+.kpi.orange{border-top-color:#d6661a}
+.kpi.purple{border-top-color:#5542a7}
+.kpi.slate{border-top-color:#2e4456}
+.kpi.lteal{border-top-color:#3acebf}
+.kpi-lbl{font-size:11px;font-weight:700;color:#6b7f8f;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px}
+.kpi-val{font-size:28px;font-weight:700;color:#2e4456;line-height:1}
+.kpi-ctx{font-size:11px;color:#8a9aab;margin-top:5px}
+.kpi-target{font-size:10px;color:#29a4a2;font-weight:700;margin-top:6px}
+.kpi-why{font-size:11px;color:#29a4a2;font-weight:600;margin-top:8px;line-height:1.4;display:none}
+.kpi-why.visible{display:block}
+
+/* TALKING POINTS */
+.tp-block{display:none;background:#e8f7f7;border:1px solid #3acebf;border-radius:8px;padding:16px;margin-top:10px}
+.tp-block.visible{display:block}
+.tp-block h4{color:#1a5f5e;font-size:12px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.tp-block h4::before{content:'▶';font-size:9px}
+.tp-block ul{padding-left:16px}
+.tp-block ul li{font-size:12px;color:#2e4456;line-height:1.6;margin-bottom:4px}
+
+/* SPOTLIGHT */
+.spotlight{background:linear-gradient(135deg,#29a4a2,#3acebf);border-radius:10px;padding:24px;margin-bottom:24px;color:#fff}
+.spotlight.orange{background:linear-gradient(135deg,#d6661a,#ff9400)}
+.spotlight.green{background:linear-gradient(135deg,#49a601,#87d001)}
+.spotlight.slate{background:linear-gradient(135deg,#2e4456,#1e3045)}
+.spotlight h3{font-family:'Roboto Slab',serif;font-weight:700;font-size:16px;margin-bottom:6px}
+.spotlight .tag{background:rgba(255,255,255,.2);font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px;display:inline-block;margin-bottom:12px;letter-spacing:.5px}
+.spotlight p{font-size:12px;opacity:.9;line-height:1.6}
+
+/* DATA NOTE */
+.data-note{background:#fff8e6;border:1px solid #ff9400;border-radius:8px;padding:12px 16px;font-size:11px;color:#6b4c00;margin-bottom:20px;line-height:1.5}
+.data-note strong{color:#9a4a00}
+
+/* ACTIVATION / BIG STAT */
+.activation-display{background:#fff;border-radius:10px;padding:24px;margin-bottom:24px;box-shadow:0 1px 4px rgba(0,0,0,.06);border-top:3px solid #29a4a2}
+.activation-number{font-size:52px;font-weight:700;color:#29a4a2;line-height:1}
+.activation-label{font-size:14px;color:#6b7f8f;margin-top:4px}
+.activation-context{font-size:12px;color:#8a9aab;margin-top:8px;line-height:1.5}
+
+/* BARRIER TABLE */
+.billing-table{background:#fff;border-radius:10px;padding:24px;margin-bottom:24px;box-shadow:0 1px 4px rgba(0,0,0,.06);overflow-x:auto}
+.barrier-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #eff1f3}
+.barrier-row:last-of-type{border-bottom:none}
+.barrier-name{font-size:13px;font-weight:500;min-width:180px}
+.barrier-bars{flex:1;display:flex;gap:6px;align-items:center}
+.barrier-vals{font-size:11px;color:#6b7f8f;white-space:nowrap;min-width:36px;text-align:right}
+.data-table{width:100%;border-collapse:collapse;font-size:12px}
+.data-table th{background:#2e4456;color:#fff;padding:10px 12px;text-align:left;font-weight:600;font-size:11px}
+.data-table td{padding:9px 12px;border-bottom:1px solid #eff1f3}
+.data-table tr:last-child td{border-bottom:none;font-weight:700;background:#f6f6f6}
+.pct-chip{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700}
+.pct-chip.high{background:#e6f7d5;color:#2a6200}
+.pct-chip.mid{background:#e0f5f5;color:#1a5f5e}
+.pct-chip.warn{background:#fff3e0;color:#9a4a00}
+.pct-chip.low{background:#fce4d6;color:#8b2500}
+.target-chip{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;background:#eff1f3;color:#6b7f8f}
+
+/* MILESTONE JOURNEY */
+.milestone-journey{background:#fff;border-radius:10px;padding:24px;margin-bottom:24px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.milestone-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:12px}
+.milestone-steps::before{content:'';position:absolute;top:28px;left:12.5%;right:12.5%;height:3px;background:#d2dce8;z-index:0}
+.milestone-step{display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;z-index:1}
+.ms-circle{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;color:#fff;flex-shrink:0}
+.ms-circle.box1{background:#29a4a2}
+.ms-circle.box2{background:#49a601}
+.ms-circle.box3{background:#0076bf}
+.ms-circle.box4{background:#5542a7}
+.ms-title{font-family:'Roboto Slab',serif;font-weight:600;font-size:12px;color:#2e4456;text-align:center}
+.ms-trigger{font-size:10px;color:#6b7f8f;text-align:center;line-height:1.4}
+.ms-delivered{font-size:13px;font-weight:700;color:#2e4456;text-align:center}
+.ms-box-type{font-size:10px;color:#29a4a2;font-weight:600;text-align:center}
+
+/* ROI TILES */
+.roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:24px}
+.roi-tile{border-radius:10px;padding:20px;color:#fff;text-align:center}
+.roi-tile.teal{background:#29a4a2}
+.roi-tile.blue{background:#0076bf}
+.roi-tile.slate{background:#2e4456}
+.roi-tile.green{background:#49a601}
+.roi-tile.orange{background:#d6661a}
+.roi-tile .big{font-size:22px;font-weight:700;line-height:1;margin-bottom:8px}
+.roi-tile .desc{font-size:11px;opacity:.85;line-height:1.4}
+
+/* RECOMMENDATIONS */
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-bottom:24px}
+.rec-card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.06);border-top:3px solid #29a4a2}
+.rec-arrow{font-size:18px;color:#29a4a2;font-weight:700;margin-bottom:8px}
+.rec-title{font-family:'Roboto Slab',serif;font-weight:600;font-size:13px;color:#2e4456;margin-bottom:6px}
+.rec-body{font-size:12px;color:#6b7f8f;line-height:1.55}
+
+/* STAGE HEADER */
+.stage-header{display:flex;align-items:center;gap:14px;margin-bottom:20px;margin-top:32px}
+.stage-num{width:36px;height:36px;border-radius:50%;background:#29a4a2;color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.stage-label-wrap{display:flex;flex-direction:column;gap:2px}
+.stage-label-tag{font-size:10px;font-weight:700;color:#29a4a2;text-transform:uppercase;letter-spacing:.6px}
+.stage-title-text{font-family:'Roboto Slab',serif;font-weight:600;font-size:18px;color:#2e4456}
+.stage-divider{flex:1;height:1px;background:#d2dce8}
+.stage-card{background:#fff;border-radius:10px;padding:24px;margin-bottom:20px;box-shadow:0 1px 4px rgba(0,0,0,.06);border-left:4px solid #29a4a2}
+.stage-narrative{font-size:14px;color:#2e4456;line-height:1.75;margin-bottom:20px;font-style:italic;border-bottom:1px solid #eff1f3;padding-bottom:16px}
+.stage-narrative strong{font-style:normal;color:#2e4456}
+
+/* CHART */
+.chart-wrap{background:#fff;border-radius:10px;padding:24px;margin-bottom:24px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.chart-title{font-family:'Roboto Slab',serif;font-weight:600;font-size:14px;margin-bottom:16px}
+.bar-chart{display:flex;align-items:flex-end;gap:10px;height:100px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
+.bar-fill{width:100%;border-radius:4px 4px 0 0;min-height:4px}
+.bar-lbl{font-size:10px;color:#8a9aab;text-align:center}
+.bar-val{font-size:10px;font-weight:700;color:#2e4456}
+
+/* UTILITY */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.footer{margin-top:40px;padding:20px;text-align:center;font-size:11px;color:#aab5c0;border-top:1px solid #d2dce8}
+@media(max-width:700px){.two-col,.three-col,.milestone-steps{grid-template-columns:1fr}.milestone-steps::before{display:none}}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="nav-brand">Pyx <span>Health</span></div>
+  <div class="nav-tabs">
+    <div class="nav-tab active" onclick="showPage('overview',this)">Program Overview</div>
+    <div class="nav-tab" onclick="showPage('screening',this)">Clinical Screening</div>
+    <div class="nav-tab" onclick="showPage('milestones',this)">Milestone Journey</div>
+    <div class="nav-tab" onclick="showPage('barriers',this)">SDoH &amp; Barriers</div>
+  </div>
+  <div class="nav-right">
+    <button class="tp-btn" id="tp-toggle" onclick="toggleTP()">Talking Points</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     PROGRAM OVERVIEW
+     ============================================================ -->
+<div class="page active" id="page-overview">
+
+  <div class="value-anchor">
+    <svg class="va-arrow" viewBox="0 0 48 48" fill="none" style="width:48px;height:48px;flex-shrink:0">
+      <circle cx="24" cy="24" r="24" fill="rgba(41,164,162,.2)"/>
+      <path d="M16 24h16M28 18l6 6-6 6" stroke="#3acebf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="va-text">
+      <h2>Pyx Health is reaching ARHOME pregnant and postpartum members in Arkansas with EPDS mental health screening, milestone-based food box engagement, and SDoH navigation — generating the clinical baselines and care attestations that <strong>ABCBS's Special Delivery program needs but cannot produce from clinical encounters alone.</strong></h2>
+      <p>Arkansas has the 4th highest preterm birth rate in the nation. Every enrolled member is navigating pregnancy in a state where food insecurity, rural transportation gaps, and social isolation make attending a prenatal appointment a logistical challenge before it's a clinical one. <strong>Pyx closes the gap between the visit and the member's daily reality — and documents it for ABCBS.</strong></p>
+    </div>
+  </div>
+
+  <div class="data-note"><strong>Data note:</strong> Metrics below represent program activity through the current reporting period. Dashboard is updated monthly as Tableau reporting is finalized. Targets reflect contracted performance benchmarks from SOW executed January 29, 2026.</div>
+
+  <!-- Stage 1: Reach -->
+  <div class="stage-header">
+    <div class="stage-num">1</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag">Stage 1 — Reach</div>
+      <div class="stage-title-text">ARHOME Members Enrolled in the Program</div>
+    </div>
+    <div class="stage-divider"></div>
+  </div>
+  <div class="stage-card">
+    <div class="stage-narrative">
+      ABCBS provides a monthly eligibility file of ARHOME members who are pregnant or postpartum. Pyx's Compassionate Support Center outreaches to each member, introduces the Maternal Care and Support Program, and supports opt-in enrollment. <strong>Members who opt in receive App access, CSC support, and a milestone-based food box series designed to move them from enrollment to prenatal and postpartum care attestation.</strong>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi teal"><div class="kpi-lbl">Members on Target List</div><div class="kpi-val">—</div><div class="kpi-ctx">ARHOME eligible · per eligibility file</div></div>
+      <div class="kpi green"><div class="kpi-lbl">Opted In (Enrolled)</div><div class="kpi-val">—</div><div class="kpi-ctx">Engaged Members to date</div></div>
+      <div class="kpi blue"><div class="kpi-lbl">Outreach Rate</div><div class="kpi-val">—</div><div class="kpi-ctx">Contact-to-enrollment conversion</div></div>
+      <div class="kpi orange"><div class="kpi-lbl">CSC Support Contacts</div><div class="kpi-val">—</div><div class="kpi-ctx">Human engagement events</div></div>
+      <div class="kpi purple"><div class="kpi-lbl">Scope</div><div class="kpi-val">1K–2K</div><div class="kpi-ctx">Contracted member target · ARHOME</div></div>
+    </div>
+    <div class="tp-block" id="tp-reach">
+      <h4>Talking Points — Program Reach</h4>
+      <ul>
+        <li>Every ARHOME member on ABCBS's target list is a pregnant or postpartum woman navigating Medicaid coverage in one of the highest-risk maternal health states in the country — Pyx is the outreach layer that reaches them before the clinical system does</li>
+        <li>Enrollment is opt-in, meaning every member in the program has actively chosen to participate — this is not passive notification, it is active engagement into a program with demonstrated member value (food boxes, human support, health education)</li>
+        <li>The Compassionate Support Center uses a multi-channel outreach model (phone, IVR, SMS, App) timed across weekday and weekend windows — designed to reach members across varying schedules and contact patterns without creating abrasion</li>
+        <li>Pyx operates under the ABCBS name via registered caller ID — members experience this as a call from their health plan, not a third-party vendor, improving trust and conversion</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Stage 2: Clinical Screening -->
+  <div class="stage-header">
+    <div class="stage-num">2</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag">Stage 2 — Clinical Screening</div>
+      <div class="stage-title-text">EPDS, SDoH, UCLA-3 &amp; PHQ-4 Baselines Established</div>
+    </div>
+    <div class="stage-divider"></div>
+  </div>
+  <div class="stage-card">
+    <div class="stage-narrative">
+      Pyx screens every enrolled member using the Edinburgh Postnatal Depression Scale (EPDS) — the clinical gold standard for perinatal depression identification — along with SDoH, UCLA-3 loneliness, and PHQ-4 distress tools. <strong>Perinatal depression affects 1 in 5 pregnant women nationally; in Arkansas, social isolation and economic stress amplify that risk. Every EPDS completed is clinical documentation that didn't exist in the member's record before Pyx enrollment.</strong>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi teal">
+        <div class="kpi-lbl">EPDS Completion Rate</div>
+        <div class="kpi-val">—</div>
+        <div class="kpi-ctx">Edinburgh Postnatal Depression Scale</div>
+        <div class="kpi-target">↑ Target: ≥60%</div>
+      </div>
+      <div class="kpi blue">
+        <div class="kpi-lbl">SDoH Screener Completion</div>
+        <div class="kpi-val">—</div>
+        <div class="kpi-ctx">Social needs screener</div>
+        <div class="kpi-target">↑ Target: ≥60%</div>
+      </div>
+      <div class="kpi orange">
+        <div class="kpi-lbl">UCLA-3 Score (Avg)</div>
+        <div class="kpi-val">—</div>
+        <div class="kpi-ctx">Scale 3–9; ≥6 = lonely</div>
+      </div>
+      <div class="kpi purple">
+        <div class="kpi-lbl">% Lonely at Baseline</div>
+        <div class="kpi-val">—</div>
+        <div class="kpi-ctx">UCLA-3 ≥6 at enrollment</div>
+      </div>
+      <div class="kpi green">
+        <div class="kpi-lbl">PHQ-4 Score (Avg)</div>
+        <div class="kpi-val">—</div>
+        <div class="kpi-ctx">Scale 0–12; ≥3 = distress flag</div>
+      </div>
+      <div class="kpi lteal">
+        <div class="kpi-lbl">Lonely→Distress</div>
+        <div class="kpi-val">—</div>
+        <div class="kpi-ctx">Lonely members also PHQ-4 elevated</div>
+      </div>
+    </div>
+    <div class="spotlight">
+      <div class="tag">WHY EPDS MATTERS TO ABCBS</div>
+      <h3>Perinatal depression is the most common complication of pregnancy — and the one most consistently missed without active screening</h3>
+      <p>The Edinburgh Postnatal Depression Scale is the clinical gold standard for identifying perinatal depression in pregnant and postpartum women. National data shows that 80% of perinatal depression cases go undetected in routine clinical care. Each EPDS Pyx completes is a clinical data point — screening documentation that feeds into ABCBS's behavioral health quality reporting and surfaces members who need care navigation before they generate a behavioral health crisis claim. <strong>For ABCBS, Pyx is the screening layer the prenatal office visit doesn't have time to complete.</strong></p>
+    </div>
+    <div class="tp-block" id="tp-screening">
+      <h4>Talking Points — Clinical Screening</h4>
+      <ul>
+        <li>EPDS completion at scale is the primary clinical output of the first stage of the program — every completion is a behavioral health baseline that ABCBS can reference against future BH claims and postpartum visit data</li>
+        <li>Perinatal depression correlates with preterm birth, low birth weight, reduced prenatal visit adherence, and postpartum complications — EPDS screening is not a standalone quality metric, it is a predictor of the birth outcomes ABCBS is trying to improve</li>
+        <li>The SDoH screener completion rate drives the downstream resource connection that the SOW measures at 60% — members who complete SDoH screening create the documented need that Pyx then connects to resources</li>
+        <li>UCLA-3 loneliness baseline is unique to the Pyx model — no other program ABCBS uses generates a loneliness score for pregnant members. Social isolation during pregnancy is a leading predictor of both perinatal depression and poor birth outcomes</li>
+        <li>These screenings are conducted over phone by CSC staff — not relying on a member to complete a form or log into a portal. The human-first model is why Pyx exceeds completion rate targets</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Stage 3: Barriers -->
+  <div class="stage-header">
+    <div class="stage-num">3</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag">Stage 3 — Barrier Identification &amp; Navigation</div>
+      <div class="stage-title-text">What's Keeping Members from Prenatal &amp; Postpartum Care</div>
+    </div>
+    <div class="stage-divider"></div>
+  </div>
+  <div class="stage-card">
+    <div class="stage-narrative">
+      Across ARHOME, the barriers between an enrolled member and a kept prenatal appointment are material, not motivational. <strong>Transportation in rural Arkansas, food insecurity that competes with copay dollars, and housing instability that makes "showing up" for a routine visit feel secondary to immediate survival — these are the barriers Pyx is identifying and navigating, in real time, for every enrolled member.</strong>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi teal">
+        <div class="kpi-lbl">SDoH Positive Screen Rate</div>
+        <div class="kpi-val">—</div>
+        <div class="kpi-ctx">Members with ≥1 identified need</div>
+      </div>
+      <div class="kpi green">
+        <div class="kpi-lbl">Resource Connection Rate</div>
+        <div class="kpi-val">—</div>
+        <div class="kpi-ctx">Of SDoH-positive members connected</div>
+        <div class="kpi-target">↑ Target: ≥60%</div>
+      </div>
+      <div class="kpi orange">
+        <div class="kpi-lbl">Urgent Needs Flagged</div>
+        <div class="kpi-val">—</div>
+        <div class="kpi-ctx">Escalated to priority navigation</div>
+      </div>
+    </div>
+    <div class="billing-table">
+      <div class="chart-title" style="margin-bottom:14px">Top SDoH Barriers — ARHOME Maternal Members</div>
+      <div class="barrier-row"><div class="barrier-name">Transportation Access</div><div class="barrier-bars"><div style="flex:1;background:#eff1f3;border-radius:4px;height:8px"><div style="background:#29a4a2;height:8px;border-radius:4px;width:100%"></div></div></div><div class="barrier-vals">—</div></div>
+      <div class="barrier-row"><div class="barrier-name">Food Insecurity</div><div class="barrier-bars"><div style="flex:1;background:#eff1f3;border-radius:4px;height:8px"><div style="background:#29a4a2;height:8px;border-radius:4px;width:85%"></div></div></div><div class="barrier-vals">—</div></div>
+      <div class="barrier-row"><div class="barrier-name">Housing Instability</div><div class="barrier-bars"><div style="flex:1;background:#eff1f3;border-radius:4px;height:8px"><div style="background:#29a4a2;height:8px;border-radius:4px;width:65%"></div></div></div><div class="barrier-vals">—</div></div>
+      <div class="barrier-row"><div class="barrier-name">Economic / Financial Stress</div><div class="barrier-bars"><div style="flex:1;background:#eff1f3;border-radius:4px;height:8px"><div style="background:#29a4a2;height:8px;border-radius:4px;width:55%"></div></div></div><div class="barrier-vals">—</div></div>
+      <div class="barrier-row" style="border-bottom:none"><div class="barrier-name">Relationship / Safety</div><div class="barrier-bars"><div style="flex:1;background:#eff1f3;border-radius:4px;height:8px"><div style="background:#29a4a2;height:8px;border-radius:4px;width:30%"></div></div></div><div class="barrier-vals">—</div></div>
+    </div>
+    <div class="tp-block" id="tp-barriers">
+      <h4>Talking Points — Barriers &amp; Navigation</h4>
+      <ul>
+        <li>Transportation is the #1 barrier for rural Arkansas maternal members — if a member cannot get to a prenatal appointment, HEDIS PPC rates do not improve regardless of how many reminder calls are made. Pyx identifies this barrier at enrollment and connects members to NET (Non-Emergency Transportation) resources before the missed appointment</li>
+        <li>The food box program is not just an incentive — it is a direct intervention on food insecurity, the #2 barrier. When a pregnant member receives a produce or pantry staples box, Pyx is simultaneously addressing a nutrition risk AND reinforcing milestone completion</li>
+        <li>Relationship and safety barriers are documented and escalated — Pyx's escalation protocol ensures members who indicate domestic violence or relationship safety concerns are warm-handed to appropriate resources per ABCBS's guidelines. This is a category of risk that no claims data can surface</li>
+        <li>The 60% SDoH resource connection target means Pyx commits to connecting members to specific resources — not just identifying needs. This documented connection rate is what ABCBS can use in quality and equity reporting</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Stage 4: Milestone Engagement -->
+  <div class="stage-header">
+    <div class="stage-num">4</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag">Stage 4 — Milestone Engagement</div>
+      <div class="stage-title-text">The 4-Box Journey — EPDS to Postpartum Visit</div>
+    </div>
+    <div class="stage-divider"></div>
+  </div>
+  <div class="stage-card">
+    <div class="stage-narrative">
+      Each member progresses through a milestone-triggered box series that links health actions to tangible rewards — moving from EPDS completion at enrollment to attested prenatal visits to the postpartum visit that closes the HEDIS PPC gap. <strong>The box series is the engagement architecture. Every box delivered represents a member who has taken a documented health action. Prenatal and postpartum attestation rates are the leading indicators of HEDIS PPC improvement.</strong>
+    </div>
+    <div class="milestone-journey">
+      <div class="chart-title">Member Milestone Journey — Boxes Triggered by Health Actions</div>
+      <div class="milestone-steps">
+        <div class="milestone-step">
+          <div class="ms-circle box1">1</div>
+          <div class="ms-title">Welcome Box</div>
+          <div class="ms-trigger">Opt-in + EPDS completion</div>
+          <div class="ms-delivered">— delivered</div>
+          <div class="ms-box-type">Mixed Produce Box</div>
+        </div>
+        <div class="milestone-step">
+          <div class="ms-circle box2">2</div>
+          <div class="ms-title">You're Expecting!</div>
+          <div class="ms-trigger">Prenatal visit attested</div>
+          <div class="ms-delivered">— delivered</div>
+          <div class="ms-box-type">Pantry Staples</div>
+        </div>
+        <div class="milestone-step">
+          <div class="ms-circle box3">3</div>
+          <div class="ms-title">Prenatal Care</div>
+          <div class="ms-trigger">Second prenatal visit attested</div>
+          <div class="ms-delivered">— delivered</div>
+          <div class="ms-box-type">Mixed Produce Box</div>
+        </div>
+        <div class="milestone-step">
+          <div class="ms-circle box4">4</div>
+          <div class="ms-title">New Baby</div>
+          <div class="ms-trigger">Postpartum visit attested (7–84 days)</div>
+          <div class="ms-delivered">— delivered</div>
+          <div class="ms-box-type">Baby Essentials Box</div>
+        </div>
+      </div>
+    </div>
+    <div class="two-col" style="margin-bottom:24px">
+      <div class="activation-display" style="margin-bottom:0">
+        <div class="activation-number">—</div>
+        <div class="activation-label">Prenatal visit attestation rate</div>
+        <div class="activation-context">Target: ≥25% of Engaged Members attest to scheduling and attending a prenatal visit. Every attestation is a documented care action Pyx drives that ABCBS cannot attribute to any other program.</div>
+      </div>
+      <div class="activation-display" style="margin-bottom:0;border-top-color:#5542a7">
+        <div class="activation-number" style="color:#5542a7">—</div>
+        <div class="activation-label">Postpartum visit attestation rate (HEDIS PPC-aligned)</div>
+        <div class="activation-context">Target: ≥25% of Engaged Members attest to a postpartum visit within 7–84 days post-delivery — aligned with HEDIS Prenatal and Postpartum Care (PPC) specifications. This is the measure ABCBS needs to move.</div>
+      </div>
+    </div>
+    <div class="tp-block" id="tp-milestones">
+      <h4>Talking Points — Milestone Engagement</h4>
+      <ul>
+        <li>The box milestone structure creates a behavioral chain: EPDS completion → prenatal visit → second prenatal visit → postpartum visit. Each milestone triggers a box; each box is documented evidence of a member taking a health action ABCBS cannot drive through standard outreach</li>
+        <li>Prenatal attestation rate directly feeds HEDIS Prenatal and Postpartum Care (PPC) — the measure ABCBS is accountable for improving in the ARHOME population. Every member who attests to a prenatal visit is a PPC numerator candidate</li>
+        <li>The postpartum visit milestone (Box 4) is HEDIS PPC-aligned at 7–84 days post-delivery — the window that ABCBS's quality team tracks. Pyx's member attestation process is documented and auditable, providing the trail ABCBS needs for quality attribution</li>
+        <li>Baby Essentials Box for Box 4 (valued at $150) is the highest-value box in the series — placed at the postpartum milestone deliberately, because that is the visit members are most likely to miss after delivery. The box value is the engagement that closes the PPC gap</li>
+        <li>The box program also integrates with the ABCBS Special Delivery maternity case management program — warm handoffs and shared case plan updates ensure Pyx and Special Delivery are not operating in parallel but in coordination</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Stage 5: Plan Value -->
+  <div class="stage-header">
+    <div class="stage-num">5</div>
+    <div class="stage-label-wrap">
+      <div class="stage-label-tag">Stage 5 — Plan Value</div>
+      <div class="stage-title-text">What This Generates for ABCBS</div>
+    </div>
+    <div class="stage-divider"></div>
+  </div>
+  <div class="stage-card">
+    <div class="stage-narrative">
+      The Maternal Care and Support Program is generating four categories of value for ABCBS simultaneously — HEDIS quality metric movement, perinatal depression identification, birth outcomes data, and SDoH intelligence that no claims file will ever produce. <strong>Each of these has a direct line to ABCBS's quality scores, cost structure, and equity reporting obligations under ARHOME.</strong>
+    </div>
+    <div class="roi-grid">
+      <div class="roi-tile teal">
+        <div class="big">HEDIS PPC</div>
+        <div class="desc">Postpartum visit attestation at 7–84 days post-delivery directly feeds ABCBS's Prenatal and Postpartum Care quality measure — the metric ARHOME tracks for maternal health equity</div>
+      </div>
+      <div class="roi-tile blue">
+        <div class="big">EPDS → BH</div>
+        <div class="desc">EPDS screening at scale generates perinatal depression clinical baselines — intercepting members before postpartum depression becomes a behavioral health claim or a maternal health crisis</div>
+      </div>
+      <div class="roi-tile slate">
+        <div class="big">Birth Outcomes</div>
+        <div class="desc">1% YOY reduction target in preterm birth and low birth weight among Engaged Members — tracked via self-reported pregnancy data, claims, and post-program surveys per SOW</div>
+      </div>
+      <div class="roi-tile green">
+        <div class="big">SDoH Data</div>
+        <div class="desc">Transportation, food, housing, and safety barriers mapped at the member level — documentation that feeds ABCBS's ARHOME SDOH reporting and cannot be generated from claims</div>
+      </div>
+      <div class="roi-tile orange">
+        <div class="big">Special Delivery</div>
+        <div class="desc">Bidirectional coordination with ABCBS's Special Delivery maternity case management — Pyx engagement data supplements clinical case management with real-time SDoH and member status updates</div>
+      </div>
+    </div>
+    <div class="spotlight slate">
+      <div class="tag">ARKANSAS CONTEXT — WHY THIS MATTERS</div>
+      <h3>4th highest preterm birth rate · high maternal mortality · rural access gaps — the conditions that make Pyx's engagement model non-optional</h3>
+      <p>Arkansas ranks among the worst states in the country for maternal health outcomes. High preterm birth rates, significant rural transportation barriers, and limited prenatal provider access in many counties mean that reaching a pregnant ARHOME member with a standard reminder call is not enough. <strong>Pyx's model — food box milestone incentives + human CSC support + EPDS screening + SDoH navigation — is designed specifically for the conditions Arkansas members face.</strong> The program doesn't ask members to engage with a portal. It calls them, meets them where they are, and rewards care actions with something they need. That's why it works where standard outreach doesn't.</p>
+    </div>
+    <div class="tp-block" id="tp-value">
+      <h4>Talking Points — Plan Value</h4>
+      <ul>
+        <li>HEDIS PPC improvement is the measurable quality outcome this program is built to drive — every postpartum attestation Pyx documents is a data point ABCBS can use in quality reporting for the ARHOME population. This is not an engagement program that feeds a dashboard — it is a quality improvement mechanism</li>
+        <li>EPDS documentation at scale gives ABCBS a behavioral health dataset for the ARHOME maternal population that does not exist anywhere else. These are the members most at risk for postpartum depression claims in the 6–12 months after delivery — Pyx is the early warning system</li>
+        <li>The 1% YOY reduction target in preterm and low birth weight (per SOW Exhibit A) establishes a concrete birth outcomes benchmark — and the food box program addresses food insecurity (a clinical risk factor for preterm birth) as a direct intervention, not a side effect</li>
+        <li>SDoH documentation from Pyx — transportation, food, housing, safety — is the intelligence ABCBS needs for ARHOME equity reporting. Arkansas Medicaid is under increasing scrutiny on maternal health equity; Pyx generates the member-level SDOH data that demonstrates ABCBS is actively addressing root causes</li>
+        <li>Warm handoffs to ABCBS's Special Delivery program mean the most complex members identified by Pyx are escalated into clinical case management — Pyx and Special Delivery are the two-layer model for ARHOME maternal risk stratification</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer">Pyx Health | BCBS Arkansas | Maternal Care &amp; Support Program | ARHOME | Confidential</div>
+</div>
+
+<!-- ============================================================
+     CLINICAL SCREENING
+     ============================================================ -->
+<div class="page" id="page-screening">
+
+  <div class="value-anchor">
+    <svg viewBox="0 0 48 48" fill="none" style="width:48px;height:48px;flex-shrink:0">
+      <circle cx="24" cy="24" r="24" fill="rgba(41,164,162,.2)"/>
+      <path d="M16 24h16M28 18l6 6-6 6" stroke="#3acebf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="va-text">
+      <h2>Pyx screens every enrolled ARHOME member on the EPDS, UCLA-3, PHQ-4, and SDoH — generating <strong>clinical baselines for perinatal depression, loneliness, and social need</strong> that no other program in ABCBS's portfolio produces for this population.</h2>
+      <p>These screenings are conducted over phone by CSC staff — no portal login required. The result is clinical documentation at scale for the member cohort where maternal mortality risk, perinatal depression, and SDOH burden are highest.</p>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top:0">
+    <div class="section-label">EPDS Screening</div>
+    <div class="section-title">Edinburgh Postnatal Depression Scale — Perinatal Depression</div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="activation-display">
+    <div class="activation-number">—</div>
+    <div class="activation-label">EPDS screener completion rate among enrolled ARHOME members (target: ≥60%)</div>
+    <div class="activation-context">The EPDS is the clinical gold standard for perinatal depression identification. Triggered at Box 1 (opt-in milestone), the EPDS creates a documented mental health baseline for each enrolled member — a data point that does not exist in the clinical record until Pyx generates it. Members who screen positive are documented and eligible for escalation per ABCBS protocols.</div>
+    <div class="tp-block" id="tp-epds">
+      <h4>Talking Points — EPDS</h4>
+      <ul>
+        <li>EPDS completion rate above 60% means Pyx is outperforming the contracted threshold — demonstrating that the phone-based, human-first model reaches pregnant members more effectively than digital-only screening approaches</li>
+        <li>Each EPDS completion is a behavioral health documentation record — the baseline from which perinatal depression trajectory can be tracked. Members who screen positive become the highest-priority cohort for CSC follow-up and potential warm handoff to Special Delivery or BH providers</li>
+        <li>National data: 80% of perinatal depression cases go undetected in routine OB care. Pyx is identifying the cases the clinical system misses — and documenting them in a way that ABCBS can act on</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-label">Loneliness &amp; Distress</div>
+    <div class="section-title">UCLA-3 &amp; PHQ-4 — Social Isolation and Mental Health Baseline</div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi teal"><div class="kpi-lbl">UCLA-3 Score (Avg)</div><div class="kpi-val">—</div><div class="kpi-ctx">Scale 3–9; ≥6 = clinically lonely</div></div>
+    <div class="kpi orange"><div class="kpi-lbl">% Lonely at Baseline</div><div class="kpi-val">—</div><div class="kpi-ctx">UCLA-3 ≥6 at enrollment</div></div>
+    <div class="kpi blue"><div class="kpi-lbl">PHQ-4 Score (Avg)</div><div class="kpi-val">—</div><div class="kpi-ctx">Scale 0–12; ≥3 = distress flag</div></div>
+    <div class="kpi purple"><div class="kpi-lbl">Lonely→Distress</div><div class="kpi-val">—</div><div class="kpi-ctx">Of lonely members, PHQ-4 elevated</div></div>
+  </div>
+  <div class="billing-table">
+    <div class="chart-title" style="margin-bottom:14px">Screening Summary — ARHOME Maternal Members</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Screening Tool</th>
+          <th>Measure</th>
+          <th>Result</th>
+          <th>Clinical Threshold</th>
+          <th>Program Target</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Edinburgh Postnatal Depression Scale (EPDS)</td>
+          <td>Completion Rate</td>
+          <td>—</td>
+          <td>Score ≥10 = probable depression</td>
+          <td><span class="target-chip">≥60%</span></td>
+        </tr>
+        <tr>
+          <td>SDoH Screener</td>
+          <td>Completion Rate</td>
+          <td>—</td>
+          <td>Positive screen triggers navigation</td>
+          <td><span class="target-chip">≥60%</span></td>
+        </tr>
+        <tr>
+          <td>UCLA-3 Loneliness Scale</td>
+          <td>Avg Score</td>
+          <td>—</td>
+          <td>Score ≥6 = clinically lonely</td>
+          <td>Baseline (no target)</td>
+        </tr>
+        <tr>
+          <td>PHQ-4</td>
+          <td>Avg Score</td>
+          <td>—</td>
+          <td>Score ≥3 = anxiety/depression flag</td>
+          <td>Baseline (no target)</td>
+        </tr>
+        <tr>
+          <td>SDoH Resource Connections</td>
+          <td>% of SDoH-positive connected</td>
+          <td>—</td>
+          <td>Documented resource linkage</td>
+          <td><span class="target-chip">≥60%</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tp-block" id="tp-screening2">
+    <h4>Talking Points — Loneliness &amp; Distress Screening</h4>
+    <ul>
+      <li>UCLA-3 loneliness in pregnant members is a direct predictor of perinatal depression — isolated pregnant women are significantly more likely to have elevated EPDS scores. Pyx generates both scores simultaneously, connecting the social and clinical picture for each member</li>
+      <li>PHQ-4 above the distress threshold (≥3) in pregnant members is a clinical flag — these are women experiencing anxiety or depressive symptoms during or immediately after pregnancy, the period when intervention is most effective at preventing postpartum complications</li>
+      <li>The UCLA-3 to PHQ-4 crossover rate (lonely members who also show PHQ-4 distress) is the measure of compound clinical risk — Pyx identifies these members early and prioritizes them for elevated CSC engagement</li>
+    </ul>
+  </div>
+
+  <div class="footer">Pyx Health | BCBS Arkansas | Maternal Care &amp; Support | Clinical Screening | Confidential</div>
+</div>
+
+<!-- ============================================================
+     MILESTONE JOURNEY
+     ============================================================ -->
+<div class="page" id="page-milestones">
+
+  <div class="value-anchor">
+    <svg viewBox="0 0 48 48" fill="none" style="width:48px;height:48px;flex-shrink:0">
+      <circle cx="24" cy="24" r="24" fill="rgba(41,164,162,.2)"/>
+      <path d="M16 24h16M28 18l6 6-6 6" stroke="#3acebf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="va-text">
+      <h2>Every box delivered is a member who has completed a documented health action. The <strong>4-box milestone series is the engagement architecture</strong> that moves members from enrollment to the prenatal and postpartum visits ABCBS needs to move HEDIS PPC.</h2>
+      <p>Box milestones are triggered by health actions — not time. A member earns each box by completing a specific step in their care journey. Pyx documents every milestone attestation, creating an auditable record of member health actions that ABCBS can cross-reference against claims.</p>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top:0">
+    <div class="section-label">Box 1</div>
+    <div class="section-title">Welcome Box — Opt-In &amp; EPDS Completion</div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="two-col" style="margin-bottom:24px">
+    <div class="activation-display" style="margin-bottom:0">
+      <div class="activation-number">—</div>
+      <div class="activation-label">Box 1 delivered — Welcome (Mixed Produce)</div>
+      <div class="activation-context">Triggered by: member opts in to program AND completes EPDS screening. This is the first documented clinical data point — EPDS completion is both the milestone and the screening that identifies perinatal depression risk. Every Box 1 = one EPDS in the record.</div>
+    </div>
+    <div style="background:#fff;border-radius:10px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.06)">
+      <div style="font-family:'Roboto Slab',serif;font-weight:600;font-size:14px;color:#2e4456;margin-bottom:14px">Box 1 Value for ABCBS</div>
+      <div style="font-size:12px;color:#6b7f8f;line-height:1.7">
+        <div style="margin-bottom:10px">✓ <strong>EPDS completion documented</strong> — behavioral health baseline established</div>
+        <div style="margin-bottom:10px">✓ <strong>Member activated</strong> — enrolled and engaged in the program</div>
+        <div style="margin-bottom:10px">✓ <strong>Food insecurity addressed</strong> — produce box delivered to home</div>
+        <div>✓ <strong>Trust established</strong> — first tangible benefit received; member now connected to CSC</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-label">Box 2 &amp; 3</div>
+    <div class="section-title">Prenatal Care Boxes — First &amp; Second Prenatal Visit Attestation</div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="two-col" style="margin-bottom:24px">
+    <div class="activation-display" style="margin-bottom:0;border-top-color:#49a601">
+      <div class="activation-number" style="color:#49a601">—</div>
+      <div class="activation-label">Box 2 delivered — Pantry Staples (Prenatal Visit 1 attested)</div>
+      <div class="activation-context">Target: ≥25% of Engaged Members attest to scheduling and attending a prenatal visit. Every attestation is auditable — ABCBS can cross-reference against claims for prenatal visit codes.</div>
+    </div>
+    <div class="activation-display" style="margin-bottom:0;border-top-color:#0076bf">
+      <div class="activation-number" style="color:#0076bf">—</div>
+      <div class="activation-label">Box 3 delivered — Mixed Produce (Prenatal Visit 2 attested)</div>
+      <div class="activation-context">Second prenatal visit attestation reinforces care continuity — members who attend two prenatal visits are significantly more likely to complete postpartum care. This is the HEDIS PPC pipeline in action.</div>
+    </div>
+  </div>
+  <div class="spotlight green">
+    <div class="tag">HEDIS PPC — PRENATAL CARE</div>
+    <h3>Prenatal attestation rate is the leading indicator of postpartum visit completion — and HEDIS PPC improvement</h3>
+    <p>Members who attest to prenatal visits through Pyx are members who have (1) attended care, (2) stayed engaged with the program, and (3) demonstrated the trust-based engagement that predicts postpartum visit completion. The box milestone structure creates behavioral momentum — each box triggers the next milestone. <strong>ABCBS can cross-reference Pyx's prenatal attestation records against claims-based prenatal visit codes to build the quality attribution chain.</strong></p>
+  </div>
+
+  <div class="section-header">
+    <div class="section-label">Box 4</div>
+    <div class="section-title">New Baby Box — Postpartum Visit Attestation (HEDIS PPC)</div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="activation-display" style="border-top-color:#5542a7">
+    <div class="activation-number" style="color:#5542a7">—</div>
+    <div class="activation-label">Box 4 delivered — Baby Essentials ($150 value) or Mixed Produce — Postpartum visit attested (7–84 days post-delivery)</div>
+    <div class="activation-context">Target: ≥25% of Engaged Members attest to a postpartum visit at 7–84 days post-delivery — aligned with HEDIS Prenatal and Postpartum Care (PPC) specifications. The Baby Essentials Box ($150) is the highest-value box in the series, placed at the postpartum milestone because that is the visit most likely to be missed. Pyx documentation: member attest in writing or by phone to scheduling and attending the postpartum visit and the date of such visit.</div>
+    <div class="tp-block" id="tp-box4">
+      <h4>Talking Points — Box 4 &amp; Postpartum Attestation</h4>
+      <ul>
+        <li>Box 4 is the most important box in the series for ABCBS — it is the one that moves the HEDIS PPC postpartum care numerator. Every member who receives Box 4 has attested to a postpartum visit within the 7–84 day HEDIS window</li>
+        <li>Baby Essentials Box at $150 is deliberately the highest-value incentive in the series — postpartum is when members are most disengaged from the health system, managing a newborn, and least likely to schedule a provider visit without a compelling reason. The box is the compelling reason</li>
+        <li>Pregnancy loss is also addressed at the Box 4 stage — members who experience pregnancy loss receive a "Sympathy" variant with a Mixed Produce Box, ensuring compassionate engagement continues regardless of pregnancy outcome</li>
+        <li>Postpartum attestation is auditable — ABCBS can cross-reference against claims for postpartum visit CPT codes to validate Pyx attestation data and build the quality attribution record for HEDIS reporting</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-label">Performance vs. Target</div>
+    <div class="section-title">Milestone Rates — Actual vs. Contracted Targets</div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="billing-table">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Milestone</th>
+          <th>Box Triggered</th>
+          <th>Actual Rate</th>
+          <th>Contracted Target</th>
+          <th>vs. Target</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Opt-in + EPDS Completion</td>
+          <td>Box 1 — Welcome</td>
+          <td>—</td>
+          <td><span class="target-chip">≥60% EPDS</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Prenatal Visit Attested (1st)</td>
+          <td>Box 2 — Pantry Staples</td>
+          <td>—</td>
+          <td><span class="target-chip">≥25%</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Prenatal Visit Attested (2nd)</td>
+          <td>Box 3 — Mixed Produce</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Postpartum Visit Attested (7–84 days)</td>
+          <td>Box 4 — Baby Essentials</td>
+          <td>—</td>
+          <td><span class="target-chip">≥25%</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>SDoH Resource Connection</td>
+          <td>(SDoH-positive members)</td>
+          <td>—</td>
+          <td><span class="target-chip">≥60%</span></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">Pyx Health | BCBS Arkansas | Maternal Care &amp; Support | Milestone Journey | Confidential</div>
+</div>
+
+<!-- ============================================================
+     SDOH & BARRIERS
+     ============================================================ -->
+<div class="page" id="page-barriers">
+
+  <div class="value-anchor">
+    <svg viewBox="0 0 48 48" fill="none" style="width:48px;height:48px;flex-shrink:0">
+      <circle cx="24" cy="24" r="24" fill="rgba(41,164,162,.2)"/>
+      <path d="M16 24h16M28 18l6 6-6 6" stroke="#3acebf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="va-text">
+      <h2>Pyx identifies the barriers between every enrolled member and the care appointments ABCBS needs them to keep — and navigates those barriers with <strong>documented resource connections that feed ABCBS's ARHOME SDoH reporting.</strong></h2>
+      <p>These are not survey responses. They are live, member-reported barriers surfaced through CSC conversations — the kind of intelligence that claims data cannot produce and provider visits don't have time to capture.</p>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-top:0">
+    <div class="section-label">SDoH Overview</div>
+    <div class="section-title">Social Needs Identified — ARHOME Maternal Members</div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi teal">
+      <div class="kpi-lbl">SDoH Screener Completion</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-ctx">Of enrolled members screened</div>
+      <div class="kpi-target">↑ Target: ≥60%</div>
+    </div>
+    <div class="kpi orange">
+      <div class="kpi-lbl">SDoH Positive Rate</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-ctx">At least one identified social need</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-lbl">Resource Connection Rate</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-ctx">SDoH-positive members connected</div>
+      <div class="kpi-target">↑ Target: ≥60%</div>
+    </div>
+    <div class="kpi blue">
+      <div class="kpi-lbl">Urgent Needs Escalated</div>
+      <div class="kpi-val">—</div>
+      <div class="kpi-ctx">Priority navigation flagged</div>
+    </div>
+  </div>
+
+  <div class="section-header">
+    <div class="section-label">Top Barriers</div>
+    <div class="section-title">SDoH Barriers — ARHOME Maternal Members</div>
+    <div class="section-divider"></div>
+  </div>
+  <div class="billing-table">
+    <div class="barrier-row"><div class="barrier-name">Transportation Access</div><div class="barrier-bars"><div style="flex:1;background:#eff1f3;border-radius:4px;height:8px"><div style="background:#29a4a2;height:8px;border-radius:4px;width:100%"></div></div></div><div class="barrier-vals">—</div></div>
+    <div class="barrier-row"><div class="barrier-name">Food Insecurity</div><div class="barrier-bars"><div style="flex:1;background:#eff1f3;border-radius:4px;height:8px"><div style="background:#29a4a2;height:8px;border-radius:4px;width:85%"></div></div></div><div class="barrier-vals">—</div></div>
+    <div class="barrier-row"><div class="barrier-name">Housing Instability</div><div class="barrier-bars"><div style="flex:1;background:#eff1f3;border-radius:4px;height:8px"><div style="background:#29a4a2;height:8px;border-radius:4px;width:65%"></div></div></div><div class="barrier-vals">—</div></div>
+    <div class="barrier-row"><div class="barrier-name">Economic / Financial Stress</div><div class="barrier-bars"><div style="flex:1;background:#eff1f3;border-radius:4px;height:8px"><div style="background:#29a4a2;height:8px;border-radius:4px;width:55%"></div></div></div><div class="barrier-vals">—</div></div>
+    <div class="barrier-row" style="border-bottom:none"><div class="barrier-name">Relationship / Safety</div><div class="barrier-bars"><div style="flex:1;background:#eff1f3;border-radius:4px;height:8px"><div style="background:#29a4a2;height:8px;border-radius:4px;width:30%"></div></div></div><div class="barrier-vals">—</div></div>
+  </div>
+
+  <div class="two-col">
+    <div style="background:#f6f6f6;border-radius:10px;padding:20px">
+      <div style="font-family:'Roboto Slab',serif;font-weight:600;font-size:14px;color:#2e4456;margin-bottom:14px">SDoH Navigation — How Pyx Connects Resources</div>
+      <div class="barrier-row" style="border-color:#d2dce8"><div class="barrier-name" style="font-size:12px;min-width:130px">Transportation</div><div style="flex:1;font-size:12px;color:#6b7f8f">NET (Non-Emergency Transportation) coordination; ride scheduling for prenatal appointments</div></div>
+      <div class="barrier-row" style="border-color:#d2dce8"><div class="barrier-name" style="font-size:12px;min-width:130px">Food Insecurity</div><div style="flex:1;font-size:12px;color:#6b7f8f">Farmbox Direct produce/pantry boxes + WIC enrollment referrals + local food bank connections</div></div>
+      <div class="barrier-row" style="border-color:#d2dce8"><div class="barrier-name" style="font-size:12px;min-width:130px">Housing</div><div style="flex:1;font-size:12px;color:#6b7f8f">Resource linkages to local housing programs and shelter services per ABCBS escalation protocols</div></div>
+      <div class="barrier-row" style="border-color:#d2dce8"><div class="barrier-name" style="font-size:12px;min-width:130px">Economic Stress</div><div style="flex:1;font-size:12px;color:#6b7f8f">Benefit navigation — SNAP, WIC, LIHEAP, utility assistance programs available in member's county</div></div>
+      <div class="barrier-row" style="border-bottom:none"><div class="barrier-name" style="font-size:12px;min-width:130px">Safety</div><div style="flex:1;font-size:12px;color:#6b7f8f">Escalated per ABCBS protocols — warm handoff to appropriate resources; documented in escalation log</div></div>
+    </div>
+    <div>
+      <div class="spotlight" style="margin-bottom:16px">
+        <div class="tag">SDOH + FOOD BOX = DUAL INTERVENTION</div>
+        <h3>Food insecurity addressed twice — in screening and in the box</h3>
+        <p style="margin-top:8px">When Pyx identifies food insecurity through the SDoH screener, the member is simultaneously receiving a food box as part of the milestone program. Pyx is not just connecting members to resources — it is delivering the resource directly. This dual-channel approach (referral + immediate delivery) closes the SDoH gap that referral-only programs miss when members lack transportation to access community resources.</p>
+      </div>
+      <div class="spotlight orange">
+        <div class="tag">ARHOME EQUITY REPORTING</div>
+        <h3>Every SDoH connection documented = ABCBS equity data</h3>
+        <p style="margin-top:8px">ARHOME includes maternal health equity reporting requirements. Pyx's documented SDoH connection rate — members identified with needs, connected to specific resources — provides ABCBS with the member-level data trail required for state reporting. Claims data cannot generate this. Pyx can.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tp-block" id="tp-sdoh">
+    <h4>Talking Points — SDoH &amp; Barriers</h4>
+    <ul>
+      <li>Transportation is the primary barrier to prenatal appointment keeping in rural Arkansas — and it is the one barrier that no clinical reminder call can solve. Pyx's NET coordination directly removes the logistical barrier between a member and a prenatal visit</li>
+      <li>Food insecurity is addressed at two levels simultaneously: through SDoH screening and resource referral, AND through direct delivery of produce and pantry staples boxes as part of the milestone program. Pyx is the only program doing both</li>
+      <li>The 60% SDoH resource connection commitment (per SOW Exhibit C) means Pyx is accountable not just for identifying needs but for documenting that members were connected to specific resources — this is the data ABCBS needs for ARHOME equity reporting and network adequacy documentation</li>
+      <li>Safety and relationship concerns are escalated through a documented protocol — these are not informal referrals. Pyx maintains an escalation log that ABCBS can audit, and warm handoffs to appropriate crisis resources are conducted per ABCBS-approved escalation procedures</li>
+    </ul>
+  </div>
+
+  <div class="footer">Pyx Health | BCBS Arkansas | Maternal Care &amp; Support | SDoH &amp; Barriers | Confidential</div>
+</div>
+
+<script>
+function showPage(id,el){
+  document.querySelectorAll('.page').forEach(function(p){p.classList.remove('active')});
+  document.querySelectorAll('.nav-tab').forEach(function(t){t.classList.remove('active')});
+  document.getElementById('page-'+id).classList.add('active');
+  el.classList.add('active');
+}
+function toggleTP(){
+  var btn=document.getElementById('tp-toggle');
+  var on=btn.classList.toggle('active');
+  document.querySelectorAll('.tp-block').forEach(function(b){b.classList.toggle('visible',on)});
+}
+</script>
+</body>
+</html>
