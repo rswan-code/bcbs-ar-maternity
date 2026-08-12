@@ -159,6 +159,116 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
 .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
 .footer{margin-top:40px;padding:20px;text-align:center;font-size:11px;color:#aab5c0;border-top:1px solid #d2dce8}
 @media(max-width:700px){.two-col,.three-col,.milestone-steps{grid-template-columns:1fr}.milestone-steps::before{display:none}}
+
+/* ============================================================
+   EXECUTIVE VIEW — Aetna Medicare design language
+   ============================================================ */
+.exec-page-header{margin:-28px -28px 0 -28px}
+.exec-dark-bleed{margin-left:-28px;margin-right:-28px}
+.exec-wrap{max-width:1100px;margin:0 auto;padding:0 40px}
+.exec-section{padding:52px 0}
+.exec-section-head{margin-bottom:28px}
+.exec-section-title{font-family:'Roboto Slab',serif;font-size:26px;font-weight:300;color:#2e4456;margin-top:10px;line-height:1.25}
+.exec-section-sub{font-size:13px;color:#8a9aab;margin-top:6px;line-height:1.65;max-width:720px}
+.exec-white-bg{background:#fff}
+.exec-alt-bg{background:#eff1f3}
+
+/* Gradient header */
+.exec-header{background:linear-gradient(135deg,#2e4456 0%,#1e3347 100%);padding:56px 40px 52px;color:#fff}
+.exec-header-eyebrow{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:14px}
+.exec-header h1{font-family:'Roboto Slab',serif;font-size:38px;font-weight:300;color:#fff;margin-bottom:10px;line-height:1.2}
+.exec-header h1 strong{font-weight:700;color:#49a601}
+.exec-period{font-size:13px;color:rgba(255,255,255,.5);margin-top:8px}
+
+/* Eyebrow pills */
+.eyebrow-pill{display:inline-block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.ep-green{background:rgba(73,166,1,.12);color:#49a601}
+.ep-blue{background:rgba(0,118,191,.12);color:#0076bf}
+.ep-teal{background:rgba(41,164,162,.12);color:#29a4a2}
+.ep-purple{background:rgba(85,66,167,.12);color:#5542a7}
+.ep-orange{background:rgba(214,102,26,.12);color:#d6661a}
+
+/* Exec KPI cards */
+.exec-kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}
+.exec-kpi{background:#fff;border-radius:12px;padding:22px 20px;border-top:4px solid #d2dce8;box-shadow:0 2px 10px rgba(46,68,86,.07)}
+.exec-kpi.ek-green{border-top-color:#49a601}
+.exec-kpi.ek-blue{border-top-color:#0076bf}
+.exec-kpi.ek-teal{border-top-color:#29a4a2}
+.exec-kpi.ek-orange{border-top-color:#d6661a}
+.exec-kpi.ek-purple{border-top-color:#5542a7}
+.exec-kpi-label{font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#8a9aab;margin-bottom:8px}
+.exec-kpi-val{font-family:'Roboto Slab',serif;font-size:36px;font-weight:700;color:#2e4456;line-height:1}
+.exec-kpi-ctx{font-size:11px;color:#aab5c0;margin-top:6px;line-height:1.5}
+.exec-kpi-note{font-size:11px;font-weight:600;margin-top:6px}
+.exec-kpi.ek-green .exec-kpi-note{color:#49a601}
+.exec-kpi.ek-blue .exec-kpi-note{color:#0076bf}
+.exec-kpi.ek-teal .exec-kpi-note{color:#29a4a2}
+.exec-kpi.ek-orange .exec-kpi-note{color:#d6661a}
+.exec-kpi.ek-purple .exec-kpi-note{color:#5542a7}
+
+/* Milestone funnel rows */
+.ms-funnel-row{background:#fff;border-radius:12px;padding:18px 24px;display:grid;grid-template-columns:52px 1fr 160px 140px;align-items:center;gap:20px;border-left:5px solid #d2dce8;box-shadow:0 2px 8px rgba(46,68,86,.05);margin-bottom:10px}
+.ms-funnel-row.mfr-done{border-left-color:#49a601}
+.ms-funnel-row.mfr-active{border-left-color:#0076bf}
+.ms-num-badge{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Roboto Slab',serif;font-size:18px;font-weight:700;flex-shrink:0}
+.ms-num-badge.mfr-done{background:rgba(73,166,1,.12);color:#49a601}
+.ms-num-badge.mfr-active{background:rgba(0,118,191,.12);color:#0076bf}
+.mfr-name{font-family:'Roboto Slab',serif;font-size:15px;font-weight:600;color:#2e4456}
+.mfr-trigger{font-size:11px;color:#8a9aab;margin-top:4px;line-height:1.5}
+.mfr-count-wrap{text-align:right}
+.mfr-count{font-family:'Roboto Slab',serif;font-size:28px;font-weight:700;color:#2e4456;line-height:1}
+.mfr-count-lbl{font-size:11px;color:#aab5c0;margin-top:3px}
+.mfr-status{text-align:right}
+.mfr-badge{display:inline-block;padding:4px 12px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.mfr-badge.done{background:rgba(73,166,1,.12);color:#49a601}
+.mfr-badge.active{background:rgba(0,118,191,.12);color:#0076bf}
+@media(max-width:700px){.ms-funnel-row{grid-template-columns:44px 1fr;}.mfr-count-wrap,.mfr-status{display:none}}
+
+/* SLA / Performance Cards */
+.exec-sla-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.exec-sla-card{background:#fff;border:2px solid #d2dce8;border-radius:12px;padding:24px 18px;text-align:center}
+.exec-sla-card.sla-exceed{border-color:#49a601}
+.exec-sla-card.sla-ramping{border-color:#0076bf}
+.exec-sla-card.sla-behind{border-color:#d6661a}
+.sla-metric{font-family:'Roboto Slab',serif;font-size:36px;font-weight:700;color:#2e4456;line-height:1;margin-bottom:4px}
+.sla-metric-label{font-size:12px;font-weight:700;color:#6b7f8f;margin-bottom:14px}
+.sla-perf-badge{display:inline-block;padding:4px 14px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px}
+.sla-perf-badge.exceed{background:rgba(73,166,1,.12);color:#49a601}
+.sla-perf-badge.ramping{background:rgba(0,118,191,.12);color:#0076bf}
+.sla-perf-badge.behind{background:rgba(214,102,26,.12);color:#d6661a}
+.sla-benchmark{font-size:11px;color:#aab5c0;line-height:1.5}
+
+/* Client Question Boxes */
+.client-q-box{background:linear-gradient(135deg,rgba(73,166,1,.06),rgba(135,208,1,.03));border-left:4px solid #49a601;border-radius:0 10px 10px 0;padding:20px 24px;margin-bottom:14px}
+.client-q-box.cqb-blue{background:linear-gradient(135deg,rgba(0,118,191,.06),rgba(12,171,236,.03));border-left-color:#0076bf}
+.client-q-box.cqb-teal{background:linear-gradient(135deg,rgba(41,164,162,.06),rgba(58,206,191,.03));border-left-color:#29a4a2}
+.cq-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#aab5c0;margin-bottom:6px}
+.cq-question{font-family:'Roboto Slab',serif;font-size:16px;font-weight:600;color:#2e4456;margin-bottom:8px;line-height:1.35}
+.cq-answer{font-size:13px;color:#6b7f8f;line-height:1.7}
+.cq-answer strong{color:#2e4456}
+
+/* Dark Value Section */
+.exec-value-section{background:linear-gradient(160deg,#2e4456,#1a2d3e);color:#fff;padding:56px 0}
+.exec-val-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:28px}
+.exec-val-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:26px}
+.exec-val-card-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
+.exec-val-card-num{font-family:'Roboto Slab',serif;font-size:44px;font-weight:700;color:#fff;line-height:1;margin-bottom:8px}
+.exec-val-card-num.evc-green{color:#87d001}
+.exec-val-card-num.evc-teal{color:#3acebf}
+.exec-val-card-body{font-size:12px;color:rgba(255,255,255,.5);line-height:1.7}
+
+/* Goals Alignment Section */
+.exec-goals-section{background:#2e4456;padding:52px 0;color:#fff}
+.exec-goals-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:24px}
+.exec-goal-card{background:rgba(255,255,255,.07);border-radius:12px;padding:24px;border-top:3px solid rgba(255,255,255,.12)}
+.exec-goal-card.gc-green{border-top-color:#49a601}
+.exec-goal-card.gc-blue{border-top-color:#0076bf}
+.exec-goal-card.gc-teal{border-top-color:#29a4a2}
+.gc-plan-label{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:4px}
+.gc-goal{font-family:'Roboto Slab',serif;font-size:15px;font-weight:600;color:#fff;margin-bottom:12px;line-height:1.4}
+.gc-divider{width:32px;height:2px;background:rgba(255,255,255,.18);margin-bottom:12px}
+.gc-pyx-label{font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#87d001;margin-bottom:5px}
+.gc-activation{font-size:12px;color:rgba(255,255,255,.55);line-height:1.65}
 </style>
 </head>
 <body>
@@ -172,6 +282,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
     <div class="nav-tab" onclick="showPage('barriers',this)">SDoH &amp; Barriers</div>
     <div class="nav-tab" onclick="showPage('motivate',this)">Motivate Program</div>
     <div class="nav-tab" onclick="showPage('journey',this)">Value Journey</div>
+    <div class="nav-tab" onclick="showPage('execview',this)">Executive View</div>
   </div>
   <div class="nav-right">
     <button class="tp-btn" id="tp-toggle" onclick="toggleTP()">Talking Points</button>
@@ -1358,6 +1469,256 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
   </div>
 
   <div class="footer">Pyx Health | BCBS Arkansas | Maternal Care &amp; Support | Value Journey · Outcomes Archetype | Confidential</div>
+</div>
+
+<!-- ============================================================
+     EXECUTIVE VIEW
+     ============================================================ -->
+<div class="page" id="page-execview">
+
+  <!-- Gradient Header -->
+  <div class="exec-header exec-page-header">
+    <div class="exec-header-eyebrow">Month 3 Progress Report</div>
+    <h1>BCBS Arkansas <strong>Maternal Care &amp; Support</strong></h1>
+    <p class="exec-period">Data through June 30, 2026 &nbsp;·&nbsp; Program launched April 2026 &nbsp;·&nbsp; 291 members enrolled</p>
+  </div>
+
+  <!-- Program at a Glance -->
+  <div class="exec-white-bg exec-dark-bleed">
+    <div class="exec-wrap">
+      <div class="exec-section">
+        <div class="exec-section-head">
+          <span class="eyebrow-pill ep-green">Program at a Glance</span>
+          <div class="exec-section-title">Early Indicators</div>
+          <div class="exec-section-sub">Month 3 actuals. Every number reflects a member action — a screening completed, an appointment documented, a barrier identified.</div>
+        </div>
+        <div class="exec-kpi-grid">
+          <div class="exec-kpi ek-green">
+            <div class="exec-kpi-label">Members Enrolled</div>
+            <div class="exec-kpi-val">291</div>
+            <div class="exec-kpi-ctx">53 added in June · 72.8% toward target</div>
+            <div class="exec-kpi-note">↑ Growing every month</div>
+          </div>
+          <div class="exec-kpi ek-blue">
+            <div class="exec-kpi-label">EPDS Screened</div>
+            <div class="exec-kpi-val">248</div>
+            <div class="exec-kpi-ctx">85% screen rate · avg score 7.2</div>
+            <div class="exec-kpi-note">Not available in claims</div>
+          </div>
+          <div class="exec-kpi ek-teal">
+            <div class="exec-kpi-label">Appointments</div>
+            <div class="exec-kpi-val">216</div>
+            <div class="exec-kpi-ctx">163 prenatal · 49 postpartum · 208 OBGYN-delivered</div>
+            <div class="exec-kpi-note">179 attended · 83% rate</div>
+          </div>
+          <div class="exec-kpi ek-orange">
+            <div class="exec-kpi-label">Attendance Rate</div>
+            <div class="exec-kpi-val">83%</div>
+            <div class="exec-kpi-ctx">179 of 216 documented appointments attended</div>
+            <div class="exec-kpi-note">High-barrier population</div>
+          </div>
+          <div class="exec-kpi ek-purple">
+            <div class="exec-kpi-label">SDoH Identified</div>
+            <div class="exec-kpi-val">88%</div>
+            <div class="exec-kpi-ctx">3.2 avg barriers per member · 81% food insecurity</div>
+          </div>
+          <div class="exec-kpi ek-green">
+            <div class="exec-kpi-label">Care Milestones</div>
+            <div class="exec-kpi-val">434</div>
+            <div class="exec-kpi-ctx">EPDS + prenatal + postpartum + birth</div>
+            <div class="exec-kpi-note">Each tied to a member record</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Milestone Funnel -->
+  <div class="exec-alt-bg exec-dark-bleed">
+    <div class="exec-wrap">
+      <div class="exec-section">
+        <div class="exec-section-head">
+          <span class="eyebrow-pill ep-blue">Milestone Journey</span>
+          <div class="exec-section-title">The Care Activation Funnel</div>
+          <div class="exec-section-sub">Each row is a documented care action. Pyx triggers each milestone — screening, prenatal, postpartum, birth — and delivers a tangible confirmation tied to a member record.</div>
+        </div>
+        <div class="ms-funnel-row mfr-done">
+          <div class="ms-num-badge mfr-done">1</div>
+          <div>
+            <div class="mfr-name">EPDS Depression Screening</div>
+            <div class="mfr-trigger">Trigger: Enrollment · Delivers: Nutrition box · Behavioral health baseline established at the member level</div>
+          </div>
+          <div class="mfr-count-wrap">
+            <div class="mfr-count">248</div>
+            <div class="mfr-count-lbl">Screenings completed</div>
+          </div>
+          <div class="mfr-status"><span class="mfr-badge done">Complete</span></div>
+        </div>
+        <div class="ms-funnel-row mfr-done">
+          <div class="ms-num-badge mfr-done">2</div>
+          <div>
+            <div class="mfr-name">Prenatal Visit 1</div>
+            <div class="mfr-trigger">Trigger: First prenatal appointment · Delivers: Mixed produce box · HEDIS PPC prenatal numerator documentation</div>
+          </div>
+          <div class="mfr-count-wrap">
+            <div class="mfr-count">93</div>
+            <div class="mfr-count-lbl">Visits documented</div>
+          </div>
+          <div class="mfr-status"><span class="mfr-badge done">Complete</span></div>
+        </div>
+        <div class="ms-funnel-row mfr-done">
+          <div class="ms-num-badge mfr-done">3</div>
+          <div>
+            <div class="mfr-name">Prenatal Visit 2</div>
+            <div class="mfr-trigger">Trigger: Second prenatal appointment · Delivers: Mixed produce box · Additional HEDIS PPC documentation</div>
+          </div>
+          <div class="mfr-count-wrap">
+            <div class="mfr-count">72</div>
+            <div class="mfr-count-lbl">Visits documented</div>
+          </div>
+          <div class="mfr-status"><span class="mfr-badge done">Complete</span></div>
+        </div>
+        <div class="ms-funnel-row mfr-active">
+          <div class="ms-num-badge mfr-active">4</div>
+          <div>
+            <div class="mfr-name">Live Birth / Postpartum</div>
+            <div class="mfr-trigger">Trigger: Confirmed delivery · Delivers: Baby essentials box · Opens 84-day HEDIS PPC postpartum window</div>
+          </div>
+          <div class="mfr-count-wrap">
+            <div class="mfr-count">21</div>
+            <div class="mfr-count-lbl">Births tracked</div>
+          </div>
+          <div class="mfr-status"><span class="mfr-badge active">Building</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Performance -->
+  <div class="exec-white-bg exec-dark-bleed">
+    <div class="exec-wrap">
+      <div class="exec-section">
+        <div class="exec-section-head">
+          <span class="eyebrow-pill ep-teal">Performance</span>
+          <div class="exec-section-title">Program vs. Benchmark</div>
+          <div class="exec-section-sub">Month 3 actuals against contracted benchmarks and program targets.</div>
+        </div>
+        <div class="exec-sla-grid">
+          <div class="exec-sla-card sla-exceed">
+            <div class="sla-metric">98%</div>
+            <div class="sla-metric-label">App Enrollment Rate</div>
+            <span class="sla-perf-badge exceed">Exceeding</span>
+            <div class="sla-benchmark">Benchmark: 80% · All 291 members app-enrolled and engaged through dual-channel model</div>
+          </div>
+          <div class="exec-sla-card sla-exceed">
+            <div class="sla-metric">83%</div>
+            <div class="sla-metric-label">Appointment Attendance</div>
+            <span class="sla-perf-badge exceed">Exceeding</span>
+            <div class="sla-benchmark">179 of 216 documented appointments attended · high-barrier Medicaid population</div>
+          </div>
+          <div class="exec-sla-card sla-ramping">
+            <div class="sla-metric">72.8%</div>
+            <div class="sla-metric-label">Enrollment Progress</div>
+            <span class="sla-perf-badge ramping">Ramping</span>
+            <div class="sla-benchmark">291 of 400-member target · 53 enrolled in June · strong Q3 trajectory</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client Questions -->
+  <div class="exec-alt-bg exec-dark-bleed">
+    <div class="exec-wrap">
+      <div class="exec-section">
+        <div class="exec-section-head">
+          <span class="eyebrow-pill ep-purple">Key Questions</span>
+          <div class="exec-section-title">What BCBS Arkansas Is Asking</div>
+          <div class="exec-section-sub">The questions every partner asks at Month 3 — answered with program data.</div>
+        </div>
+        <div class="client-q-box">
+          <div class="cq-label">Question 1</div>
+          <div class="cq-question">Are you finding the highest-need members?</div>
+          <div class="cq-answer"><strong>Yes.</strong> 88% of enrolled members have at least one documented SDoH need — averaging 3.2 barriers per member. 81% screen positive for food insecurity via PRAPARE at enrollment. The 18–24 cohort averages an EPDS of 8.7, above the elevated screening threshold. These are not low-acuity members. They are the members ARHOME was designed to reach.</div>
+        </div>
+        <div class="client-q-box cqb-blue">
+          <div class="cq-label">Question 2</div>
+          <div class="cq-question">Is this affecting care utilization?</div>
+          <div class="cq-answer"><strong>The pipeline is building.</strong> 216 appointments are in the record — 163 prenatal, 49 postpartum. Of those, 179 are attended (83%). 208 are OBGYN-delivered. 37 more are already scheduled ahead of delivery. 47 members carry an active follow-up flag. The documentation chain for HEDIS PPC is live at the member level.</div>
+        </div>
+        <div class="client-q-box cqb-teal">
+          <div class="cq-label">Question 3</div>
+          <div class="cq-question">What's the HEDIS story at renewal?</div>
+          <div class="cq-answer"><strong>The measure is being built now.</strong> 21 confirmed births are each tracked through the 84-day HEDIS PPC postpartum window. Members who enrolled in April and deliver in fall 2026 will produce the first closed HEDIS events for this cohort. BCBS Arkansas will have attested, member-level documentation — not available from provider encounters alone.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dark Value Section -->
+  <div class="exec-value-section exec-dark-bleed">
+    <div class="exec-wrap">
+      <span class="eyebrow-pill" style="background:rgba(135,208,1,.15);color:#87d001">Value Created for BCBS Arkansas</span>
+      <div style="font-family:'Roboto Slab',serif;font-size:32px;font-weight:300;color:#fff;margin:12px 0 10px;line-height:1.25">What the program is building <strong style="font-weight:700;color:#87d001">that claims can't.</strong></div>
+      <p style="font-size:13px;color:rgba(255,255,255,.5);max-width:720px;line-height:1.75;margin-bottom:0">Provider claims show that care happened. Pyx shows what drove it — the barriers overcome, the appointments held, the behavioral baselines that explain why the member showed up or didn't. This is the member-level intelligence HEDIS measurement and ARHOME equity reporting require.</p>
+      <div class="exec-val-grid">
+        <div class="exec-val-card">
+          <div class="exec-val-card-label">Members Activated</div>
+          <div class="exec-val-card-num evc-green">291</div>
+          <div class="exec-val-card-body">1,071 outreached → 291 enrolled → 216 appointments documented. Each member stays active in the program through delivery and postpartum — held open through the moments when disengagement is most likely.</div>
+        </div>
+        <div class="exec-val-card">
+          <div class="exec-val-card-label">Documented Care Actions</div>
+          <div class="exec-val-card-num evc-teal">434</div>
+          <div class="exec-val-card-body">Every delivery is tied to a member record, a milestone trigger, and a delivery confirmation — an auditable trail for HEDIS attribution and ARHOME equity reporting that claims alone cannot produce.</div>
+        </div>
+        <div class="exec-val-card">
+          <div class="exec-val-card-label">Postpartum Window Pipeline</div>
+          <div class="exec-val-card-num">21</div>
+          <div class="exec-val-card-body">Births confirmed and tracked through the 84-day HEDIS PPC window. 37 additional appointments scheduled ahead of delivery — the measure is being built before the postpartum window opens.</div>
+        </div>
+        <div class="exec-val-card">
+          <div class="exec-val-card-label">Behavioral Health Baselines</div>
+          <div class="exec-val-card-num">248</div>
+          <div class="exec-val-card-body">EPDS depression screenings documented at the member level. Avg score 7.2. 18–24 cohort at 8.7. Not in claims. Not in the provider chart. Only in Pyx — now available to ABCBS for care management and equity reporting.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Goals Alignment -->
+  <div class="exec-goals-section exec-dark-bleed">
+    <div class="exec-wrap">
+      <span class="eyebrow-pill" style="background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)">Goals Alignment</span>
+      <div style="font-family:'Roboto Slab',serif;font-size:28px;font-weight:300;color:#fff;margin:10px 0 6px;line-height:1.25">BCBS Arkansas Goals → <strong style="font-weight:700">Pyx Activation</strong></div>
+      <div style="font-size:13px;color:rgba(255,255,255,.4);margin-bottom:24px">How the program is delivering against what ABCBS said matters most.</div>
+      <div class="exec-goals-grid">
+        <div class="exec-goal-card gc-green">
+          <div class="gc-plan-label">BCBS Arkansas Goal</div>
+          <div class="gc-goal">Close HEDIS PPC prenatal &amp; postpartum gaps for ARHOME members</div>
+          <div class="gc-divider"></div>
+          <div class="gc-pyx-label">Pyx Activation</div>
+          <div class="gc-activation">163 prenatal + 49 postpartum appointments in the record. 21 births tracked through the 84-day PPC window. Every attested visit is a potential HEDIS numerator — with member-level documentation ABCBS cannot get from claims alone.</div>
+        </div>
+        <div class="exec-goal-card gc-blue">
+          <div class="gc-plan-label">BCBS Arkansas Goal</div>
+          <div class="gc-goal">Advance ARHOME equity reporting with member-level SDoH data</div>
+          <div class="gc-divider"></div>
+          <div class="gc-pyx-label">Pyx Activation</div>
+          <div class="gc-activation">PRAPARE completed for all enrolled members. 88% document at least one SDoH need — averaging 3.2 barriers per member. 81% food insecurity. This is the equity data ARHOME requires, sourced from members directly — not imputed from demographics.</div>
+        </div>
+        <div class="exec-goal-card gc-teal">
+          <div class="gc-plan-label">BCBS Arkansas Goal</div>
+          <div class="gc-goal">Retain high-barrier members in care through delivery and postpartum</div>
+          <div class="gc-divider"></div>
+          <div class="gc-pyx-label">Pyx Activation</div>
+          <div class="gc-activation">83% attendance rate across 216 documented appointments — for members managing food insecurity, economic instability, and childcare simultaneously. The Motivate food incentive converts a delivery into a commitment to attend care. Members are staying engaged.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Pyx Health | BCBS Arkansas | Maternal Care &amp; Support | Executive View | Confidential</div>
 </div>
 <script>
 function showPage(id,el){
