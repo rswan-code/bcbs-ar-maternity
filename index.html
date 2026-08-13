@@ -160,6 +160,23 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
 .footer{margin-top:40px;padding:20px;text-align:center;font-size:11px;color:#aab5c0;border-top:1px solid #d2dce8}
 @media(max-width:700px){.two-col,.three-col,.milestone-steps{grid-template-columns:1fr}.milestone-steps::before{display:none}}
 
+/* PRINT / PDF EXPORT */
+.pdf-btn{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8);padding:7px 14px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap}
+.pdf-btn:hover{background:rgba(255,255,255,.2);color:#fff}
+@media print{
+  @page{margin:.5in;size:letter portrait}
+  .nav,.tp-btn,.pdf-btn,.tp-block,.data-note{display:none!important}
+  .page{display:none!important;padding:0!important}
+  .page.active{display:block!important}
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  body{background:#fff}
+  .value-anchor,.stage-card,.milestone-journey,.billing-table,.exec-sla-grid,.exec-goal-card,.exec-val-card{page-break-inside:avoid}
+  .exec-page-header{margin:0!important}
+  .exec-dark-bleed{margin-left:0!important;margin-right:0!important}
+  .stage-header{margin-top:20px!important}
+  .print-header{display:block!important}
+}
+
 /* ============================================================
    EXECUTIVE VIEW — Aetna Medicare design language
    ============================================================ */
@@ -286,6 +303,7 @@ body{font-family:'Montserrat',sans-serif;background:#f6f6f6;color:#2e4456}
   </div>
   <div class="nav-right">
     <button class="tp-btn" id="tp-toggle" onclick="toggleTP()">Talking Points</button>
+    <button class="pdf-btn" onclick="window.print()">⬇ Export PDF</button>
   </div>
 </div>
 
